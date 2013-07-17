@@ -34,3 +34,9 @@ Few tips
  * The burp request file should be taken from burp with the "copy to file" function only (plain text file)
  * Generally speaking you don't need the "-p" flag as the script chooses the right parameter anyway.
  * By default the script will try to connect through burp (for debugging purposes) via 127.0.0.1:8080 (check the mtools.py script to modify the values). You can disable this with the "-b" flag.
+
+Limitations
+------------
+ * The script won't probably work on Windows systems
+ * You need at least Python 3.2 to make it run properly (or Python > 3.0 with the argparse module)
+ * It does not do encryption (not enough time and testing data), you still need padbuster for this.
