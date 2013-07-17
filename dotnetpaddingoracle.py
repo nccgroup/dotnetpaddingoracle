@@ -12,7 +12,6 @@ import mtools as mt
 import argparse
 import binascii
 import os
-#import poolthread
 
 HOST = ""
 URI = ""
