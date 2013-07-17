@@ -164,7 +164,7 @@ def testIfOracle(sampleFile, targetParameter):
 	[answer,code1] = mt.requestB(opener, url, headers, data, method)
 
 	if (code1 != 200):
-		print("Error the initial request must be valid")
+		print("Error, the initial request must be valid")
 		sys.exit(0)
 
 	print('Invalid padding')
@@ -178,7 +178,7 @@ def testIfOracle(sampleFile, targetParameter):
 	if code2 != code3:
 		print("==>> vulnerable, mazelthoff!")
 
-		print('Bonus : Null IV plus initialrequest')
+		print('Bonus : Null IV plus initialrequest (to be use with the padbuster script)')
 		nullIV = '\x00' * blockSize
 		data[targetParameter] = mt.encodeASP(str(nullIV) + str(cipherText))
 		mt.requestC(opener, url, headers, data, method)
