@@ -1,6 +1,11 @@
-#! /usr/bin/env python
-
+#! /usr/bin/env python3
 # -*- coding: UTF8 -*-
+
+# Released as open source by NCC Group Plc - http://www.nccgroup.com/
+# Developed by Gabriel Caudrelier, gabriel dot caudrelier at nccgroup dot com
+# https://github.com/nccgroup/pip3line
+# Released under AGPL see LICENSE for more information
+
 
 import sys
 import mtools as mt
@@ -175,7 +180,7 @@ def testIfOracle(sampleFile, targetParameter):
 
 		print('Bonus : Null IV plus initialrequest')
 		nullIV = '\x00' * blockSize
-		data[targetParameter] = mt.encodeASP(nullIV + cipherText)
+		data[targetParameter] = mt.encodeASP(str(nullIV) + str(cipherText))
 		mt.requestC(opener, url, headers, data, method)
 		return True
 	else:
@@ -191,7 +196,7 @@ if __name__ == "__main__":
 	parser.add_argument('-d', '--decrypt', action='store_const', const=True, default=False, help='Decrypt ') 
 	parser.add_argument('-s', '--ssl', action='store_const', const=True, default=False, help='use ssl transport ') 
 	parser.add_argument('-p', '--parameter', nargs=1, default='d', help='Parameter to use as Oracle')
-	parser.add_argument('file', metavar='File', type=argparse.FileType('r'), nargs=1, help='Request sample from Burp')
+	parser.add_argument('filename', metavar='File', type=argparse.FileType('r'), nargs=1, help='Request sample from Burp')
 
 	args = parser.parse_args()
 	if os.name != 'posix':
@@ -205,7 +210,7 @@ if __name__ == "__main__":
 		mt.Protocol = 'http'
 	
 	if args.decrypt:
-		decrypt(args.files[0].name, args.parameter[0])
+		decrypt(args.filename[0].name, args.parameter[0])
 	elif args.test_vuln:
-		testIfOracle(args.files[0].name,args.parameter[0])
+		testIfOracle(args.filename[0].name,args.parameter[0])
 	
