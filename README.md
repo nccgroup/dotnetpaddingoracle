@@ -30,7 +30,7 @@ usage
 Few tips
 ---------
 
- * Make sure that you use the 'ssl' flag in the relveant cases, as this vould lead to false negative results.
+ * Make sure that you use the 'ssl' flag in the relevant cases, as this could lead to false negative results.
  * The burp request file should be taken from burp with the "copy to file" function only (plain text file)
- * Generally speaking you don't need the "-p" flag as the default choose the right parameter anyway.
- * By default the script will try to connect through burp (for debugging purposes) via 127.0.0.1:8080 (check the script to modify the values). You can disable this with the "-b" flag.
+ * Generally speaking you don't need the "-p" flag as the script chooses the right parameter anyway.
+ * By default the script will try to connect through burp (for debugging purposes) via 127.0.0.1:8080 (check the mtools.py script to modify the values). You can disable this with the "-b" flag.
