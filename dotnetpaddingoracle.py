@@ -196,7 +196,7 @@ if __name__ == "__main__":
 	parser.add_argument('-d', '--decrypt', action='store_const', const=True, default=False, help='Decrypt ') 
 	parser.add_argument('-s', '--ssl', action='store_const', const=True, default=False, help='use ssl transport ') 
 	parser.add_argument('-p', '--parameter', nargs=1, default='d', help='Parameter to use as Oracle')
-	parser.add_argument('filename', metavar='File', type=argparse.FileType('r'), nargs=1, help='Request sample from Burp')
+	parser.add_argument('filename', metavar='Burp request file', type=argparse.FileType('r'), nargs=1, help='Request sample from Burp')
 
 	args = parser.parse_args()
 	if os.name != 'posix':
