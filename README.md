@@ -39,4 +39,4 @@ Limitations
 ------------
  * The script won't probably work on Windows systems
  * You need at least Python 3.2 to make it run properly (or Python > 3.0 with the argparse module)
- * It does not do encryption (not enough time and testing data), you still need padbuster for this. However the script will give you some value (the null IV plus a valid block) to use with padbuster.
+ * It does not do encryption (not enough time and testing data), you still need padbuster for this. However the script will give you the null IV plus a valid block to use with padbuster.
