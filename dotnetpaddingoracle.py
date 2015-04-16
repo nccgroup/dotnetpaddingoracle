@@ -141,7 +141,7 @@ def testIfOracle(sampleFile, targetParameter):
 	
 	[url,headers,data,method] = mt.parseBurpData(sampleFile)
 	print("Test if \'"+targetParameter+"\' is an Oracle") 
-	opener = mt.createOpener(withBurpProxy=False)
+	opener = mt.createOpener(withBurpProxy=useBurpProxy)
 	print("data=", data[targetParameter])
 	try:
 		initialCipherText = mt.decodeASP(data[targetParameter].encode())
