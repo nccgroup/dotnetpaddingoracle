@@ -12,6 +12,7 @@ import mtools as mt
 import argparse
 import binascii
 import os
+import ssl
 
 HOST = ""
 URI = ""
@@ -196,6 +197,9 @@ def testIfOracle(sampleFile, targetParameter):
 
 
 if __name__ == "__main__":
+    
+    # disabling ssl verification altogether
+    ssl._create_default_https_context = ssl._create_unverified_context
 
     parser = argparse.ArgumentParser(description='Perform the padding Oracle attack on .NET web application')
     parser.add_argument('-t', '--test-vuln', action='store_const', const=True, default=True,
